@@ -5,18 +5,19 @@
  */
 package cursoemvideo;
 
-import java.util.Date;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  *
  * @author Samsung
  */
-public class TelaRelogio extends javax.swing.JFrame {
+public class ResolucaoTela extends javax.swing.JFrame {
 
     /**
-     * Creates new form TelaRelogio
+     * Creates new form ResolucaoTela
      */
-    public TelaRelogio() {
+    public ResolucaoTela() {
         initComponents();
     }
 
@@ -31,21 +32,26 @@ public class TelaRelogio extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        lblHora = new javax.swing.JLabel();
-        btnHora = new javax.swing.JButton();
+        lblTela = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/nsFIXsm.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cursoemvideo/imac_3.jpg"))); // NOI18N
 
-        jLabel2.setText("Data e Hora Atuais");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setText("Resolução de Tela");
 
-        lblHora.setText("Clique no Botão");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setText("Tela:");
 
-        btnHora.setText("Clique Aqui!");
-        btnHora.addActionListener(new java.awt.event.ActionListener() {
+        btn.setText("Clique Aqui!");
+        btn.setActionCommand("");
+        btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHoraActionPerformed(evt);
+                btnActionPerformed(evt);
             }
         });
 
@@ -54,30 +60,31 @@ public class TelaRelogio extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(43, 43, 43)
                 .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(lblHora)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btnHora)))
-                .addContainerGap(58, Short.MAX_VALUE))
+                        .addComponent(lblTela)
+                        .addGap(57, 57, 57)
+                        .addComponent(btn))
+                    .addComponent(jLabel3))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblHora)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnHora))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3)
+                        .addGap(13, 13, 13)
+                        .addComponent(btn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTela))
                     .addComponent(jLabel1))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
@@ -85,10 +92,14 @@ public class TelaRelogio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHoraActionPerformed
-        Date relogio = new Date();
-        lblHora.setText(relogio.toString());
-    }//GEN-LAST:event_btnHoraActionPerformed
+    private void btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionPerformed
+        Toolkit resolucao = Toolkit.getDefaultToolkit();
+       Dimension tela = resolucao.getScreenSize();
+        
+       jLabel3.setText(tela.height + " x " + tela.width);
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -107,28 +118,29 @@ public class TelaRelogio extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaRelogio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResolucaoTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaRelogio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResolucaoTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaRelogio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResolucaoTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaRelogio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResolucaoTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaRelogio().setVisible(true);
+                new ResolucaoTela().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnHora;
+    private javax.swing.JButton btn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel lblHora;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lblTela;
     // End of variables declaration//GEN-END:variables
 }
